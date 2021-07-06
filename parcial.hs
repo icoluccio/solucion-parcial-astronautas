@@ -77,8 +77,6 @@ aplicarMisionAColonia (UnaMision funcionPorHabitante funcionHabilitadora) coloni
 aplicarMision :: Mision -> Planeta -> Planeta
 aplicarMision mision planeta = map (aplicarMisionAColonia mision) planeta
 
--- HACER misiones
-
   -- 3.Saber el aumento de habitabilidad de un planeta comoconsecuencia de una mision,que se calcula como la diferencia entre la cantidadde colonias habitables antes ydespués de la mision
 cantidadDeColoniasHabitables :: Planeta -> Int
 cantidadDeColoniasHabitables = length.(filter esHabitable)
@@ -101,7 +99,6 @@ misionFuncional =  UnaMision ((agregarHabilidad "programacion funcional").modifi
 misionApagadoDeIncendio n = UnaMision (modificarSalud (-20)) (existeAstronautaConNHabilidades n)
 
 -- 1.Escribir una funcion que devuelva una colonia de estascaracteristicas
--- habitantesInfinitos habitanteAClonar habitantes = (habitanteAClonar:habitantesInfinitos habitanteAClonar habitantes)  
 habitantesInfinitos = (UnHabitante [] 0 0):habitantesInfinitos
 coloniaInfinita = UnaColonia 1 habitantesInfinitos
 
