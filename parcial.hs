@@ -102,9 +102,10 @@ misionApagadoDeIncendio n = UnaMision (modificarSalud (-20)) (existeAstronautaCo
 
 -- 1.Escribir una funcion que devuelva una colonia de estascaracteristicas
 -- habitantesInfinitos habitanteAClonar habitantes = (habitanteAClonar:habitantesInfinitos habitanteAClonar habitantes)  
--- coloniaInfinita = UnaColonia 1 (habitantesInfinitos (UnHabitante [] 0 0))
+habitantesInfinitos = (UnHabitante [] 0 0):habitantesInfinitos
+coloniaInfinita = UnaColonia 1 habitantesInfinitos
 
 respuestaFinita = (take 5).habitantes
--- respuestaInfinita = coloniaInfinita
+respuestaInfinita = (habitantes coloniaInfinita) ++ (habitantes coloniaInfinita)
 respuestaQueNuncaTermina = (filter esUnCapo).habitantes
 respuestaQueDependaDeLosParametros valor colonia = any ((>valor).salud) (habitantes colonia)
